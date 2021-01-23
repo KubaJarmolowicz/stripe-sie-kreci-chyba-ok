@@ -1,0 +1,281 @@
+:root {
+  --background-primary: #edf2f7;
+
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  font-size: 62.5%;
+}
+
+* {
+  font-family: Lato;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+
+  background-color: var(--background-primary);
+
+  overflow-x: hidden;
+}
+
+.carousel {
+  max-width: 1080px;
+}
+
+.carousel__track {
+  position: relative;
+
+  width: 100%;
+
+  height: 55rem;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+.carousel__card {
+  display: flex;
+
+  flex-direction: column;
+  position: absolute;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+  border-radius: 15px;
+}
+
+.moveable {
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel__image-part-wrapper {
+  position: relative;
+  height: 20rem;
+  border-radius: 15px;
+}
+
+.carousel__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.carousel__image-overlay {
+  background-color: currentColor;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px 0 0 15px;
+  z-index: 3;
+}
+
+.carousel__client-svg-wrapper {
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.carousel__client-svg {
+  height: 10rem;
+  width: 100%;
+}
+
+.carousel__svg-border-wrapper {
+  height: 20rem;
+  position: absolute;
+  right: -3.5rem;
+  top: 0;
+  z-index: 9;
+}
+
+.carousel__svg-border {
+  height: 100%;
+  width: 7rem;
+  fill: #edf2f7;
+}
+
+.carousel__message-part-wrapper {
+  height: 35rem;
+  padding: 3.5rem;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  line-height: 2;
+  font-size: 1.2rem;
+
+  color: #718096;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 15px;
+}
+.carousel__message {
+  position: relative;
+  text-align: justify;
+  margin-bottom: 3rem;
+
+  z-index: 5;
+}
+.carousel__client-name {
+  color: #1a202c;
+}
+
+.carousel__link {
+  padding-bottom: 2rem;
+}
+
+.carousel__button {
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #5a67d8;
+  font-size: 1.5rem;
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.carousel__button:hover {
+  color: #7f9cf5;
+}
+
+.carousel__button:active,
+.carousel__button:focus {
+  color: #7f9cf5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.carousel__button--prev {
+  left: -2rem;
+  top: 7%;
+  z-index: 10;
+}
+
+.carousel__button--next {
+  top: 7%;
+  right: -0.5rem;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom-nav__item {
+  height: 4rem;
+  width: 100%;
+  opacity: 0.5;
+  position: relative;
+  transition: transform 0.25s ease-in-out;
+}
+
+.bottom-nav__item:hover {
+  transform: translateY(5%);
+}
+
+.bottom-nav__item:focus {
+  outline: none;
+}
+
+.bottom-nav__item::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -15%;
+  opacity: 0;
+  border: 10px solid transparent;
+  border-bottom: 10px solid currentColor;
+
+  transform: translate(-50%, 100%);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bottom-nav__item.active {
+  opacity: 1;
+}
+.bottom-nav__item.active.bottom-nav__item::after {
+  transform-origin: bottom center;
+  opacity: 0.4;
+
+  transform: translate(-50%, 0);
+}
+
+.bottom-nav__image {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 568px) {
+  .carousel__track {
+    height: 20rem;
+  }
+  .carousel__card {
+    flex-direction: row;
+  }
+
+  .carousel__client-svg {
+    height: 8rem;
+    width: 100%;
+  }
+
+  .carousel__svg-border-wrapper {
+    height: 20rem;
+  }
+
+  .carousel__svg-border {
+    height: 100%;
+    width: 7rem;
+  }
+
+  .carousel__message-part-wrapper {
+    height: 20rem;
+    font-size: 1.1rem;
+  }
+
+  .carousel__button--prev {
+    top: 25%;
+    transform: translateY(-50%);
+  }
+
+  .carousel__button--next {
+    top: 25%;
+    right: -1rem;
+    transform: translateY(-50%);
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  :root {
+    font-size: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 77.5%;
+  }
+}
